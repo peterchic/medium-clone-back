@@ -38,6 +38,10 @@ if(isProduction){
   mongoose.set('debug', true);
 }
 
+// Models & middlware required in order to use throughout application(important to define BEFORE routes, so routes can use the info)
+require('./models/User')
+require('./config/passport')
+
 app.use(require('./routes'));
 
 /// catch 404 and forward to error handler
