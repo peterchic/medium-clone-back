@@ -40,8 +40,9 @@ if(isProduction){
 
 // Models & middlware required in order to use throughout application(important to define BEFORE routes, so routes can use the info)
 require('./models/User')
+require('./models/Article')
 require('./config/passport')
-// require('./routes/auth')
+require('./routes/auth')
 
 app.use(require('./routes'));
 

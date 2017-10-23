@@ -1,8 +1,8 @@
 let mongoose = require('mongoose');
-let auth = require('../auth');
-let User = mongoose.model('User');
-let passport = require('passport');
 let router = require('express').Router();
+let passport = require('passport');
+let User = mongoose.model('User');
+let auth = require('../auth');
 
 router.post('/users', function(req,res,next){
   let user = new User();
@@ -66,9 +66,9 @@ router.put('/user', auth.required, function(req, res, next){
     }
 
     return user.save().then(function(){
-      return res.json({user: user.toAuthJSON()})
-    })
-  }).catch(next) 
-})
+      return res.json({user: user.toAuthJSON()});
+    });
+  }).catch(next);
+});
 
 module.exports = router;
